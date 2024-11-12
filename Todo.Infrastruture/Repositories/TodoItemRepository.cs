@@ -27,13 +27,11 @@ namespace Todo.Infrastruture.Repositories
             return await _context.TodoItems.FindAsync(id);
         }
 
-        public async Task<List<TodoItem>> GetAllAsync(int userId, int pageNumber, int pageSize)
+        public async Task<IEnumerable<TodoItem>> GetAllAsync()
         {
             return await _context.TodoItems
-                .Where(t => t.UserId == userId)
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
+                                 .Include(t => t.User) // Eager Loading do usuário relacionado
+                                 .ToListAsync();
         }
 
         public async Task AddAsync(TodoItem item)

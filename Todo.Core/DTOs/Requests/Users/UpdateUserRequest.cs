@@ -1,9 +1,10 @@
-﻿namespace Todo.Api.DTOs.Requests.Users
+﻿namespace Todo.Core.DTOs.Requests.Users
 {
-    public class UpdateUserRequest : Request
+    public class UpdateUserRequest
     {
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
+        public string PasswordHash { get; set; } = string.Empty;
+        public DateTime LastLogin { get; set; }
     }
 }

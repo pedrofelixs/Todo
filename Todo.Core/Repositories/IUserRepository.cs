@@ -1,15 +1,13 @@
-﻿using Todo.Core.DTOs.Requests.Users;
-using Todo.Core.Models;
+﻿using Todo.Core.Models;
 
-namespace Todo.Core.Repositories
+namespace Todo.Api.Repositories
 {
     public interface IUserRepository
     {
-        Task<User?> GetByIdAsync(int id);
-        Task<List<User>> GetAllAsync(int pageNumber, int pageSize);
-        Task AddAsync(User User);
-        Task UpdateAsync(User user);
-        Task DeleteAsync(User user);
-        IQueryable<User> Query(GetAllUserRequest request);
+        Task<User> AddUserAsync(User user);
+        Task<User?> GetUserByIdAsync(int id);
+        Task<IEnumerable<User>> GetAllUsersAsync();
+        Task<User?> UpdateUserAsync(User user);
+        Task<bool> DeleteUserAsync(int id);
     }
 }

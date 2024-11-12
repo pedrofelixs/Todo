@@ -13,7 +13,7 @@ namespace Todo.Core.Models
         public string Email { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime LastLogin { get; set; }
+        public DateTime? LastLogin { get; set; }
         public ICollection<TodoItem> TodoItems { get; set; } = new List<TodoItem>();
     }
 }

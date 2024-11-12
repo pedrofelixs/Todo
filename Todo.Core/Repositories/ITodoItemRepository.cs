@@ -7,7 +7,7 @@ namespace Todo.Core.Repositories
     {
         Task<TodoItem> GetByIdAsync(int id, int UserId);
         Task<TodoItem?> GetByIdAsync(int id);
-        Task<List<TodoItem>> GetAllAsync(int userId, int pageNumber, int pageSize);
+        Task<IEnumerable<TodoItem>> GetAllAsync();
         Task AddAsync(TodoItem item);
         Task UpdateAsync(TodoItem item);
         Task DeleteAsync(TodoItem item);
